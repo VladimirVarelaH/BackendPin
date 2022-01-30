@@ -14,11 +14,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
 Route::POST('/post', 'App\Http\Controllers\ContactController@postName')->name('save_post');
 
-// Route::POST('/post', function(){
-//     return 'HolaMundo';
-// });
+Route::POST('/delete-me', function(Request $request){
+    return($request['name']);
+});
+
+Route::POST('/test', function(Request $request){
+
+    if (isset($request['name'])){
+        return ["message"=>"el name está seteado"];
+    } else {
+        return $request['data'];
+    }
+});
