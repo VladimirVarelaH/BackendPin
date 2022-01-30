@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
-    return view('welcome');
+Route::get('/', function () {
+    return ('welcome');
 });
 
 Route::get('/get', 'App\Http\Controllers\ContactController@printData');
