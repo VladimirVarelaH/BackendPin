@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::POST('/post', 'App\Http\Controllers\ContactController@postName')->name('save_post');
 
-Route::POST('/delete-me', function(Request $request){
-    return($request['name']);
+Route::GET('/answer', function(){
+    return(42);
 });
 
 Route::POST('/test', function(Request $request){
