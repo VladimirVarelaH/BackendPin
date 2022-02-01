@@ -1,6 +1,7 @@
 # Servidor para el PIN del Diplomado de Desarrollo FullStack
 
 Para desarrollar el servidor del Proyecto Integrador se utilizó el lenguaje de programación PHP con su framework Laravel y una base de datos MySQL.  
+Para ver el proyecto en producción haga [click aquí](https://grupo1-backend.herokuapp.com/).
 
 ## Las rutas
 La aplicación cuenta con dos rutas principales:
