@@ -17,40 +17,70 @@
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
-                padding: 1vw;
+                padding: 2vw;
             }
-            .input{
-                border: 2px solid black;
+            h1{
+                padding: 0;
+                margin: 0;
+            }
+            .header{
+                text-align: center;
             }
         </style>
     </head>
     <body class="antialiased">
-        <h1>Registro en el back</h1>
-        <form method="POST" action="{{route('save_post')}}">
-            {{csrf_field()}}
-            <div>
-                <label for="name">Name</label> <br/>
-                <input name="name" id="name" class="input" required>
-            </div>
-            <div>
-                <label for="message">Message</label> <br/>
-                <input type="text" id="message" name="message" class="input" required>
-            </div>
+        <section class="header">
+            <h1>Servidor para el PIN del Diplomado de Desarrollo FullStack</h1>
+            <p>Para desarrollar el servidor del Proyecto Integrador se utilizó el lenguaje de programación PHP con su framework Laravel y una base de datos MySQL. </p>
+        </section>
+        
+        <section>
 
-            <div>
-                <label for="phone">Phone</label><br/>
-                <input type="tel" id="phone" name="phone" class="input" required>
+            <h2>Lar Rutas</h2>
+            <p>La aplicación cuenta con dos rutas principales:</p>
+            <ul>
+                <li>* La ruta raíz (/): Que despliega la documentación del proyecto.</li>
+                <li>* La API post (/api/post): Que contiene la funcionalidad de validación de datos y registro.</li>
+            </ul>
+            <p>Además. se agragó la API de testing <code>answer</code>, que sirve para verificar la conección con el cliente.</p>     
+        </section>
+        <section>
+            <h2>Las Vistas</h2>
+            <p>Para completar el proyecto se desarrollaron tres vistas:</p>
+            <ul>
+                <li>answer: Una vista que devuelve la respuesta a todas las preguntas.</li>
+                <li>wellcome: La vista con la documentación del proyecto.</li>
+                <li>mail: la vista con la plantilla para el correo de verificación.</li>
+            </ul>
+        </section>
 
-            </div>
-            
-            <div>
-                <label for="email">Email</label><br/>
-                <input id="email" type="mail" name="email" class="input" required>
-            </div>
-            
+    <section>
+        <h2>El Diseño</h2>
+        <p>
+            Para diseñar la aplicación se utilizó el patrón MVC (<em>Modelo Vista Controlador</em>). Con esto en mente se comenzó el proyecto diseñando la base de datos, creando la migración de la tabla <code>contacts</code> correspondiente con el registro de contactos. <br> 
+            Luego, a partir de esta migración, se creó el modelo <code>Contact.php</code> y luego, en <code>ContactController.php</code>, se programó la lógica de validación y almacenamiento de datos.  <br>
+            Por último, se conectó el controlador a la  API <code>post</code> en el archivo <code>api.php</code>.
+        </p>
+    </section>
 
-            <button>Send</button>
-        </form>
-    </body>
+    <section>
+        <h2>El Funcionamiento</h2>
+        <p></p>
+        <ul>
+            <li>La API <code>post</code> recibe una solicitud y pasa la información al <code>ContactController</code>.</li>
+            <li>El contacto controller valida la información recibida, en el caso de que los datos sean inválidos, responde al cliente con un <code>{"status":200}</code>, significando que la conexión fue exitosa.</li>
+            <li>En el caso de que la validación sea superada, se procede a guardar el registro en base de datos, enviar un correo con la plantilla <code>mail.blade.php</code> y se responde con un <code>{"status":201}</code>, indicando un nuevo registro creado en la base de datos.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2> El deploy</h2>
+        <p>
+            A la hora de hacer el deploy de la aplicación se eligieron los servidores de Heroku y una base de datos gratuita de Clever Cloud. El proceso fue relativamente sencillo, configurando la ruta del proyecto en heroku como un <code>git remote</code> de este repositorio y empujando ahí el código correspondiente. <br>  
+            Una vez la aplicación estuvo en la nube, se realizó una migración de la base de datos en Clever Cloud y se pudo utilizar con normalidad.
+        </p>
+    </section>
+</body>
     
 </html>
+

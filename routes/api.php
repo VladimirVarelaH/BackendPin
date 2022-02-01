@@ -17,14 +17,14 @@ use Illuminate\Support\Facades\Route;
 Route::POST('/post', 'App\Http\Controllers\ContactController@postName')->name('save_post');
 
 Route::GET('/answer', function(){
-    return(42);
+    return view('answer');
 });
 
-Route::POST('/test', function(Request $request){
+// Route::POST('/test', function(Request $request){
 
-    if (isset($request['name'])){
-        return ["message"=>"el name está seteado"];
-    } else {
-        return $request['data'];
-    }
-});
+//     if (isset($request['name'])){
+//         return ["message"=>"el name está seteado"];
+//     } else {
+//         return $request['data'];
+//     }
+// });

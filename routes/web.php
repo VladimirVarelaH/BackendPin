@@ -17,9 +17,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/get', 'App\Http\Controllers\ContactController@printData');
-Route::GET('/get2/{name}', function($id){
-    return ($id);
-});
-
 // Route::POST('/post', 'App\Http\Controllers\ContactController@postName')->name('save_post');
